@@ -1,6 +1,31 @@
 body {
     width: 100%;
 }
+#loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    margin: -25px 0 0 -25px;
+    border: 8px solid #e3e3e3;
+    border-radius: 50%;
+    border-top: 8px solid  #1a73e8;/*#00A76F*/
+    border-bottom: 8px solid #1a73e8;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
 input{  
     background:none;  
     outline:none;  
@@ -51,10 +76,9 @@ header {
 }
 #news_cont p {
     margin-bottom: 20px;
-
 }
 input[id="ti"] {
-    float: left;
+    display: block;
     width: 85%;
     height: 35px;
     background-color: #fff;
@@ -62,24 +86,21 @@ input[id="ti"] {
     font-size: 18px;
     border: 1px solid #000;
     border-radius: 10px;
-    margin: 20px 7.5%;
+    margin: 20px auto;
     margin-top: 180px !important;
 }
 input[id="ti"]:hover, input[id="ti"]:focus {
-    /* border: 1px solid #1a73e8; */
     box-shadow: 0px 0px 10px #1a73e8;
 }
 img {
     width: 100%;
-    /* height: 166px; 
-    border-radius: 10px;*/
     overflow: hidden;
     margin: 0 auto;
 }
 #btn_area {
     clear: both;
     width: 85%;
-    height: 40px;
+    /*height: 40px;*/
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -88,11 +109,13 @@ img {
     width: 100px;
     height: 40px;
     border-radius: 8px;
+    font-weight: bold;
+    -webkit-appearance:none;
     color: #fff;
     cursor: pointer;
 }
 #submit {
-    background-color: rgba(218, 84, 7, 0.815);
+    background-color: #04be02;
 }
 #clean {
     background-color: rgba(15, 102, 201, 0.815);
@@ -114,7 +137,7 @@ img {
     font-size: 16px;
     word-wrap: break-word;
 }
-#p_egg {
+/*#p_egg {
     font-size: 16px;
     color: coral;
     text-align: left;
@@ -131,8 +154,7 @@ input[id="egg"] {
     border-radius: 5px;
     margin: 20px 0;
 }
-input[id="egg"]:hover, input[id="egg"]:focus {
-    /* border: 1px solid #1a73e8; */
+ input[id="egg"]:hover, input[id="egg"]:focus {
     box-shadow: 0px 0px 8px #1a73e8;
 }
 #egg_submit {
@@ -144,14 +166,61 @@ input[id="egg"]:hover, input[id="egg"]:focus {
     background: #b60a13;
     margin-top: 20px;
     margin-left: 10px;
-}
-img[src="https://icon.cnzz.com/img/pic.gif"] {
-	display: none;
-}
+} */
 @media screen and (max-width:321px) {
-    #header {
-
-        width: 90% !important;
-    
+    textarea[id="ti1"] {display: none;}
+    #p_pc {display: none;}
+    #header {width: 90% !important;}
+}
+@media screen and (min-width: 330px) and (max-width: 767px){
+    textarea[id="ti1"] {display: none;}
+    #p_pc {display: none;}
+}
+@media screen and (min-width:768px) and (max-width:1024px) {
+    textarea[id="ti1"] {display: none;}
+    #p_pc {display: none;}
+    #header {width: 45% !important;}
+    #header span {font-size: 22px;}
+    #news_cont {margin:12px}
+    #news_cont p {
+        margin-bottom: 28px;
+        font-size: 22px;
     }
+    input[id='ti'] {height: 45px; margin-top: 270px !important;}
+    #submit, #clean {height: 50px; font-size: 18px;}
+    #Ans {line-height: 35px;}
+}
+@media screen and (min-width:1025px) {
+    header {display: none !important;}
+    #p_pc {
+        font-size: 30px;
+        color: #04be02;
+        text-align: center;
+        margin: 50px auto;
+        margin-bottom: 50px;
+    }
+    #news {display: none;}
+    input[id="ti"] {display: none;}
+    /* input[id="ti"] {margin-top: 40px!important;} */
+    #btn_area {flex-direction: column;}
+    #submit, #clean {
+        margin: 20px auto;
+        width: 60%;
+        height: 50px;
+        font-size: 18px;
+    }
+    #submit {
+        background-color: #04be02;
+    }
+    textarea[id="ti1"] {
+        display: block;
+        resize: none;
+        width: 80%;
+        height: 200px;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 20px auto;
+    }
+    #Ans {width: 80%; font-size: 20px;}
+    #ans {font-size: 20px;}
 }

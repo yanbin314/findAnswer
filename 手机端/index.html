@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <link rel="stylesheet" href="./css/reset.css"/>
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_1616564_s2mbg9nl38c.css"/>
+</html>
+
+    </script>
     <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
 	<!-- <script src="jquery.js"></script> -->
-	<script src="loading.js"></script>
 </head>
 <body id="app">
+    <p id="p_pc">网课一点通</p>
     <header>
         <div id="header">
             <img src="https://q1.qlogo.cn/g?b=qq&s=100&nk=3335303011" alt="" />
@@ -22,14 +25,13 @@
         <div id="news_cont">
             <p style="text-align: center;">💚公告</p>
             <p style="color: brown;"> 💜后端接口由老白提供wx: hit24k</p>
-            <!-- <p>2 ...没了 一个小demo还要什么公告</p> -->
             <p>💙有些设备显示不完美</p>
-            <p>💜只有手机端页面 pc和pad端后面写</p>
-            <!--p>●免费题库 质量就不说了</p-->
+            <p>💜手机 pc pad端正常使用</p>
             <p>💙肯定有不少bug 求原谅 求反馈</p>
         </div>
     </div>
     <input id="ti" type="text" placeholder="输入题目">
+    <textarea id="ti1" placeholder="输入题目"></textarea>
     <div id="btn_area">
         <input type="submit" id="submit" value="查题">
         <input type="submit" id="clean" value="清空">
@@ -39,13 +41,23 @@
         <span>💛答案:</span>
         <p id="ans"></p>
     </div>
+     <!-- loading -->
+    <div id="loading" hidden></div>
     <!--p id="p_egg">小彩蛋(把上面的图片换成你的QQ头像)</p>
     <input type="text" id="egg" placeholder="QQ号">
     <input type="submit" id="egg_submit" value="设置我的头像"-->
     <script>
+        //获取清除输入框按钮
         var clean = document.getElementById("clean");
-        var content = document.getElementById("ti");
+        //获取输入框
+        var screenWidth = $(window).width();
+        if (screenWidth > 1024) 
+            var content = document.getElementById("ti1"); 
+        else
+            var content = document.getElementById("ti");
         $('#submit').click(function () {
+            var loading = $('#loading');
+            loading.show();
             $.ajax({
                     url:'index.php',
                     type:'GET',
@@ -54,6 +66,7 @@
                     success:function(data){
                         if(data.qwe == "420"){
                             alert("还没输入内容");
+                            loading.hide();
                         }else {
                            $('#ans').html(data.answer); 
                         }
@@ -61,6 +74,9 @@
                             $('#ans').html("骚瑞娜扎 没有答案");
                         }
                     },
+                    complete: function (XMLHttpRequest, textStatus) {
+					    loading.hide();
+				    },
                     error:function(error){
                         alert("服务器错误 再试一次");
                     }
@@ -74,32 +90,18 @@
             }else {
                 content.value = "";
             }
-           
         }
-        $('#egg_submit').click(function () {
+        /*document.getElementsByTagName("body")[0].onclick = function () {
+            window.location.href = "test.html"
+        }*/
+        /*$('#egg_submit').click(function () {
             if($("#egg").val() == "") {
                 $("img").attr("src","https://q1.qlogo.cn/g?b=qq&s=100&nk=3335303011");
             }else {
                 $("img").attr("src","https://q1.qlogo.cn/g?b=qq&s=100&nk="+$("#egg").val());
             }
             
-        })
-    </script>
-    <script>
-        var body = document.getElementById("app")
-        screenWidth = $(window).width();
-        if (screenWidth > 480) {
-            body.innerHTML = "去手机端试试";
-            body.style.textAlign = "center";
-            body.style.fontSize = "30px";
-            body.style.marginTop = "50px";
-        }
-        document.getElementById("submit").onclick = function () {
-            new loadAnimation().show() // 显示加载动画
-        setTimeout(function() { // 模拟ajax异步操作
-            new loadAnimation().hide() // 隐藏加载动画
-        }, 1000);
-        }
+        })*/
     </script>
 </body>
 </html>
