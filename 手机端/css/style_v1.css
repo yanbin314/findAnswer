@@ -1,7 +1,6 @@
 body {
   width: 100%;
 }
-
 #loading {
   position: absolute;
   left: 50%;
@@ -64,7 +63,6 @@ header {
   margin-top: 25px;
   float: left;
 }
-
 #header img {
   width: 80px;
   height: 80px;
@@ -73,7 +71,6 @@ header {
   border: 1px solid #fff;
   vertical-align: middle;
 }
-
 #header span {
   display: inline-block;
   color: white;
@@ -81,7 +78,6 @@ header {
   font-size: 20px;
   font-weight: bold;
 }
-
 #news {
   position: absolute;
   top: 120px;
@@ -111,7 +107,7 @@ input[id="ti"] {
   border: 1px solid #000;
   border-radius: 10px;
   margin: 20px auto;
-  margin-top: 180px !important;
+  margin-top: 150px !important;
 }
 
 input[id="ti"]:hover,
@@ -155,54 +151,43 @@ img {
 
 #Ans {
   width: 85%;
-  /*height: 40px;*/
   margin: 20px auto;
-  box-shadow: 0px 0px 1px #000;
+  box-shadow: 0px 0px 3px #000;
   background: #fff;
   padding: 5px;
-}
-
-#Ans span:first-child {
-  color: teal;
-  line-height: 30px;
-  font-weight: bold;
+  font-size: 18px;
+  
 }
 
 #ans {
-  font-size: 16px;
-  word-wrap: break-word;
+  font-size: 18px;
+  
 }
-
-/*#p_egg {
-    font-size: 16px;
-    color: coral;
-    text-align: left;
-    margin-top: 50px;
+#Ans_p {
+	word-break: break-word;
 }
-input[id="egg"] {
-    float: left;
-    width: 50%;
-    height: 20px;
-    background-color: #fff;
-    text-align: center;
-    font-size: 16px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    margin: 20px 0;
+#ques, #ans {
+	line-height: initial;
 }
- input[id="egg"]:hover, input[id="egg"]:focus {
-    box-shadow: 0px 0px 8px #1a73e8;
+#Ans p:first-child{
+	margin-bottom: 20px;
 }
-#egg_submit {
-    width: 100px;
-    height: 25px;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    background: #b60a13;
-    margin-top: 20px;
-    margin-left: 10px;
-} */
+#ans {
+   font-size: 18px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+.footer a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
 @media screen and (max-width:321px) {
   textarea[id="ti1"] {
     display: none;
@@ -221,7 +206,6 @@ input[id="egg"] {
   textarea[id="ti1"] {
     display: none;
   }
-
   #p_pc {
     display: none;
   }
@@ -255,7 +239,7 @@ input[id="egg"] {
 
   input[id='ti'] {
     height: 45px;
-    margin-top: 270px !important;
+    margin-top: 230px !important;
   }
 
   #submit,
@@ -290,23 +274,19 @@ input[id="egg"] {
     display: none;
   }
 
-  /* input[id="ti"] {margin-top: 40px!important;} */
   #btn_area {
     flex-direction: column;
   }
 
-  #submit,
-  #clean {
+#submit, #clean {
     margin: 20px auto;
     width: 60%;
     height: 50px;
     font-size: 18px;
   }
-
-  #submit {
+#submit {
     background-color: #04be02;
   }
-
   textarea[id="ti1"] {
     display: block;
     resize: none;
@@ -316,16 +296,6 @@ input[id="egg"] {
     font-weight: bold;
     margin: 20px auto;
   }
-
-  #Ans {
-    width: 80%;
-    font-size: 20px;
-  }
-
-  #ans {
-    font-size: 20px;
-  }
-
   #loading {
     top: 30%;
   }
